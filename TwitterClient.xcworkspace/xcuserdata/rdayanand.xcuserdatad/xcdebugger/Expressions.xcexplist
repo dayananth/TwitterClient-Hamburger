@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "-[MessageComposeController onSend]:MessageComposeController.m">
+      </ContextState>
+      <ContextState
+         contextName = "__51-[TwitterClient homeTimeLineWithParams:completion:]_block_invoke:TwitterClient.m">
+      </ContextState>
+      <ContextState
+         contextName = "__36-[TwitterClient retweet:completion:]_block_invoke124:TwitterClient.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TwitterClient retweet:completion:]:TwitterClient.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TweetDetailViewController viewDidLoad]:TweetDetailViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "__35-[TweetsViewController fetchTweets]_block_invoke:TweetsViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TweetsViewController tableView:numberOfRowsInSection:]:TweetsViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TwitterClient sendTweet:completion:]:TwitterClient.m">
+      </ContextState>
+      <ContextState
+         contextName = "__38-[TwitterClient favourite:completion:]_block_invoke142:TwitterClient.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[Tweet initWithDictionary:]:Tweet.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "dictionary[@&quot;favorite_count&quot;]">
+            </PersistentString>
+            <PersistentString
+               value = "dictionary[@&quot;retweet_count&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__35-[TweetsViewController viewDidLoad]_block_invoke:TweetsViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "__38-[TwitterClient sendTweet:completion:]_block_invoke113:TwitterClient.m">
+      </ContextState>
+      <ContextState
+         contextName = "__38-[TwitterClient favourite:completion:]_block_invoke145:TwitterClient.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[TweetsViewController tableView:cellForRowAtIndexPath:]:TweetsViewController.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
