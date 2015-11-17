@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+@class HamburgerViewController;
 
 @interface MenuViewController : UIViewController
-@property UIPageViewController *hamburgerController;
+@property HamburgerViewController *hamburgerController;
 - (id) initWithMenu;
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C4F18621BFB0EA000AD2008 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4F18601BFB0EA000AD2008 /* ProfileViewController.m */; settings = {ASSET_TAGS = (); }; };
+		0C4F18631BFB0EA000AD2008 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C4F18611BFB0EA000AD2008 /* ProfileViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		0CF46F5F1BEB2B8C007B0527 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF46F5E1BEB2B8C007B0527 /* main.m */; };
 		0CF46F621BEB2B8C007B0527 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF46F611BEB2B8C007B0527 /* AppDelegate.m */; };
 		0CF46F6A1BEB2B8C007B0527 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CF46F691BEB2B8C007B0527 /* Assets.xcassets */; };
@@ -34,6 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C4F185F1BFB0EA000AD2008 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		0C4F18601BFB0EA000AD2008 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		0C4F18611BFB0EA000AD2008 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		0CF46F5A1BEB2B8C007B0527 /* TwitterClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CF46F5E1BEB2B8C007B0527 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0CF46F601BEB2B8C007B0527 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -151,6 +156,9 @@
 				0CF4EBF81BF9194700A3BF90 /* HamburgerViewController.h */,
 				0CF4EBF91BF9194700A3BF90 /* HamburgerViewController.m */,
 				0CF4EBFA1BF9194700A3BF90 /* HamburgerViewController.xib */,
+				0C4F185F1BFB0EA000AD2008 /* ProfileViewController.h */,
+				0C4F18601BFB0EA000AD2008 /* ProfileViewController.m */,
+				0C4F18611BFB0EA000AD2008 /* ProfileViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -271,6 +279,7 @@
 				0CF4EC011BF9606E00A3BF90 /* MenuCell.xib in Resources */,
 				0CF46FCB1BF0202C007B0527 /* TweetDetailViewController.xib in Resources */,
 				0CF46FC61BEF1EF1007B0527 /* TweetCell.xib in Resources */,
+				0C4F18631BFB0EA000AD2008 /* ProfileViewController.xib in Resources */,
 				0CF4EBF71BF918D600A3BF90 /* MenuViewController.xib in Resources */,
 				0CF46F6D1BEB2B8C007B0527 /* LaunchScreen.storyboard in Resources */,
 				0CF46FD01BF05E44007B0527 /* MessageComposeController.xib in Resources */,
@@ -338,6 +347,7 @@
 				0CF46F621BEB2B8C007B0527 /* AppDelegate.m in Sources */,
 				0CF46FCF1BF05E44007B0527 /* MessageComposeController.m in Sources */,
 				0CF46FB81BEC8899007B0527 /* User.m in Sources */,
+				0C4F18621BFB0EA000AD2008 /* ProfileViewController.m in Sources */,
 				0CF46FB51BEC8881007B0527 /* Tweet.m in Sources */,
 				0CF46F5F1BEB2B8C007B0527 /* main.m in Sources */,
 				0CF46FCA1BF0202C007B0527 /* TweetDetailViewController.m in Sources */,

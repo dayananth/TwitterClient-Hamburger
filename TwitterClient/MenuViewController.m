@@ -12,6 +12,8 @@
 #import "User.h"
 #import "TweetsViewController.h"
 #import "HamburgerViewController.h"
+#import "ProfileViewController.h"
+#import "User.h"
 
 @interface MenuViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -30,9 +32,9 @@
     if(self){
         self.menuArray = @[@"Profile", @"Tweets", @"Mentions"];
         self.viewControllers = [NSMutableArray array];
-        [self.viewControllers insertObject:[[TweetsViewController alloc] initAsTweetsViewController]  atIndex:0];
-        [self.viewControllers insertObject:[[TweetsViewController alloc] initAsMentionsViewController]  atIndex:1];
-        [self.viewControllers insertObject:[[TweetsViewController alloc] initAsTweetsViewController]  atIndex:2];
+        [self.viewControllers insertObject:[[ProfileViewController alloc] initWithUser:[User currentUser]]  atIndex:0];
+        [self.viewControllers insertObject:[[TweetsViewController alloc] initAsTweetsViewController]  atIndex:1];
+        [self.viewControllers insertObject:[[TweetsViewController alloc] initAsMentionsViewController]  atIndex:2];
     }
     return self;
 }
@@ -46,8 +48,8 @@
     [self setUserInfo];
     HamburgerViewController *hamburgerController = self.hamburgerController;
     
-//    hamburgerController.contentViewController = self.viewControllers[0];
-
+    hamburgerController.contentViewController = self.viewControllers[1];
+    
     // Do any additional setup after loading the view from its nib.
 }
 

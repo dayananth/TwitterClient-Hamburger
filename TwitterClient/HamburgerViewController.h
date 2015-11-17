@@ -11,5 +11,5 @@
 
 @interface HamburgerViewController : UIViewController
 @property MenuViewController *menuViewController;
-@property UIViewController *contentViewController;
+@property (nonatomic, assign) UIViewController *contentViewController;
 @end

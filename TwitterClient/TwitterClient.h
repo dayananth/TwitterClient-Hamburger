@@ -20,6 +20,8 @@
 
 -(void) homeTimeLineWithParams: (NSDictionary *) params completion:(void (^) (NSArray *tweets, NSError *error)) completion;
 
+-(void) mentions: (NSDictionary *) params completion:(void (^) (NSArray *tweets, NSError *error)) completion;
+
 -(void) sendTweet: (NSDictionary *) params completion:(void (^) (Tweet *tweet, NSError *error)) completion;
 
 -(void) retweet: (NSNumber *) tweetID completion:(void (^) (Tweet *tweet, NSError *error)) completion;

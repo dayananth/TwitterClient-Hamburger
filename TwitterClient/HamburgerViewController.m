@@ -23,14 +23,24 @@
 @implementation HamburgerViewController
 
 -(void) setMenuViewController:(MenuViewController *)menuViewController{
+    _menuViewController = menuViewController;
     [self.view layoutIfNeeded];
     [self.menuView addSubview:menuViewController.view];
-    [self.view layoutIfNeeded];
 }
 
 -(void) setContentViewController:(UIViewController *)contentViewController{
+    if(_contentViewController != nil){
+        [_contentViewController willMoveToParentViewController:nil];
+        [_contentViewController.view removeFromSuperview];
+    }
+    _contentViewController = contentViewController;
+
     [self.view layoutIfNeeded];
+    
+    [contentViewController willMoveToParentViewController:self];
+
     [self.contentView addSubview:contentViewController.view];
+    [contentViewController didMoveToParentViewController:self];
     [UIView animateWithDuration:0.3 animations:^{
         self.leftMarginConstraint.constant = 0;
         [self.view layoutIfNeeded];

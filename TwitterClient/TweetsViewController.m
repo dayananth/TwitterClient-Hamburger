@@ -9,6 +9,8 @@
 #import "TweetsViewController.h"
 #import "TweetDetailViewController.h"
 #import "MessageComposeController.h"
+#import "HamburgerViewController.h"
+#import "ProfileViewController.h"
 #import "User.h"
 #import "TwitterClient.h"
 #import "Tweet.h"
@@ -98,13 +100,28 @@
     [self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     [self.TweetTableView addSubview:self.refreshControl];
     self.tweets = [NSMutableArray array];
-    [self fetchTweets];
+    if(self.isMentionsView){
+        [self fetchMentions];
+    }else{
+        [self fetchTweets];
+    }
     
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void) fetchTweets{
     [[TwitterClient sharedInstance] homeTimeLineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
+        if(tweets != nil){
+            self.tweets = tweets;
+            [self.TweetTableView reloadData];
+        }else{
+            NSLog(@"Render Error");
+        }
+    }];
+}
+
+- (void) fetchMentions{
+    [[TwitterClient sharedInstance] mentions:nil completion:^(NSArray *tweets, NSError *error) {
         if(tweets != nil){
             self.tweets = tweets;
             [self.TweetTableView reloadData];
@@ -163,17 +180,20 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TweetCell *cell =  [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     NSLog([NSString stringWithFormat:@"%ld", indexPath.row]);
+    cell.profileImageView.tag = indexPath.row;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    [cell.profileImageView addGestureRecognizer:tap];
     cell.tweet = self.tweets[indexPath.row];
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    Tweet *tweet = self.tweets[indexPath.row];
-    TweetDetailViewController *tvc = [[TweetDetailViewController alloc] initWithTweet:tweet];
-    tvc.delegate = self;
-    [self.navigationController pushViewController:tvc animated:YES];
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    Tweet *tweet = self.tweets[indexPath.row];
+//    TweetDetailViewController *tvc = [[TweetDetailViewController alloc] initWithTweet:tweet];
+//    tvc.delegate = self;
+//    [self.navigationController pushViewController:tvc animated:YES];
+//}
 
 -(void) MessageComposeController: (MessageComposeController *) MessageComposeController didPostMessage:tweet{
     [self.tweets insertObject:tweet atIndex:0];
@@ -183,6 +203,14 @@
 -(void) TweetDetailViewController: (TweetDetailViewController *) TweetDetailViewController didReply:(Tweet*) tweet{
     [self.tweets insertObject:tweet atIndex:0];
     [self.TweetTableView reloadData];
+}
+
+-(void) handleTap:(UITapGestureRecognizer *)recognizer {
+    NSLog(@"Image Tapped: %ld", [recognizer.view tag]);
+    HamburgerViewController *hamburgerViewController = (HamburgerViewController *)self.parentViewController;
+    Tweet *tweet = self.tweets[[recognizer.view tag]];
+    hamburgerViewController.contentViewController = [[ProfileViewController alloc] initWithUser:tweet.user];
+   
 }
 
 
