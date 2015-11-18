@@ -29,10 +29,10 @@
 }
 
 -(void) setContentViewController:(UIViewController *)contentViewController{
-    if(_contentViewController != nil){
-        [_contentViewController willMoveToParentViewController:nil];
-        [_contentViewController.view removeFromSuperview];
-    }
+//    if(_contentViewController != nil){
+//        [_contentViewController willMoveToParentViewController:nil];
+//        [_contentViewController.view removeFromSuperview];
+//    }
     _contentViewController = contentViewController;
 
     [self.view layoutIfNeeded];

@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HamburgerViewController.h"
 
 @interface TweetsViewController : UIViewController
 
--(id) initAsTweetsViewController;
--(id) initAsMentionsViewController;
+-(id) initAsTweetsViewControllerWithHamBurgerController: (HamburgerViewController *) hamburgerController;
+-(id) initAsMentionsViewControllerWithHamBurgerController: (HamburgerViewController *) hamburgerController;
 @end

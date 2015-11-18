@@ -31,10 +31,7 @@
     self = [super init];
     if(self){
         self.menuArray = @[@"Profile", @"Tweets", @"Mentions"];
-        self.viewControllers = [NSMutableArray array];
-        [self.viewControllers insertObject:[[ProfileViewController alloc] initWithUser:[User currentUser]]  atIndex:0];
-        [self.viewControllers insertObject:[[TweetsViewController alloc] initAsTweetsViewController]  atIndex:1];
-        [self.viewControllers insertObject:[[TweetsViewController alloc] initAsMentionsViewController]  atIndex:2];
+        
     }
     return self;
 }
@@ -46,6 +43,12 @@
     self.menuTableView.delegate = self;
     [self.menuTableView reloadData];
     [self setUserInfo];
+    
+    self.viewControllers = [NSMutableArray array];
+    [self.viewControllers insertObject:[[ProfileViewController alloc] initWithUser:[User currentUser]]  atIndex:0];
+    [self.viewControllers insertObject:[[TweetsViewController alloc] initAsTweetsViewControllerWithHamBurgerController:self.hamburgerController]  atIndex:1];
+    [self.viewControllers insertObject:[[TweetsViewController alloc] initAsMentionsViewControllerWithHamBurgerController:self.hamburgerController]  atIndex:2];
+    
     HamburgerViewController *hamburgerController = self.hamburgerController;
     
     hamburgerController.contentViewController = self.viewControllers[1];

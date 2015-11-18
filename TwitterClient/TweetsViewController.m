@@ -23,22 +23,25 @@
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property BOOL isComposeShown;
 @property BOOL isMentionsView;
+@property HamburgerViewController *hamburgerController;
 @end
 
 @implementation TweetsViewController
 
--(id) initAsTweetsViewController{
+-(id) initAsTweetsViewControllerWithHamBurgerController: (HamburgerViewController *) hamburgerController {
     self = [super init];
     if(self){
         self.isMentionsView = NO;
+        self.hamburgerController = hamburgerController;
     }
     return self;
 }
 
--(id) initAsMentionsViewController{
+-(id) initAsMentionsViewControllerWithHamBurgerController: (HamburgerViewController *) hamburgerController {
     self = [super init];
     if(self){
         self.isMentionsView = YES;
+        self.hamburgerController = hamburgerController;
     }
     return self;
 }
@@ -207,9 +210,9 @@
 
 -(void) handleTap:(UITapGestureRecognizer *)recognizer {
     NSLog(@"Image Tapped: %ld", [recognizer.view tag]);
-    HamburgerViewController *hamburgerViewController = (HamburgerViewController *)self.parentViewController;
+    HamburgerViewController *hamburgerViewController = (HamburgerViewController *)self.presentingViewController;
     Tweet *tweet = self.tweets[[recognizer.view tag]];
-    hamburgerViewController.contentViewController = [[ProfileViewController alloc] initWithUser:tweet.user];
+    self.hamburgerController.contentViewController = [[ProfileViewController alloc] initWithUser:tweet.user];
    
 }
 
